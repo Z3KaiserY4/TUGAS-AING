@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Die Muskete</title>
+	<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
+	<style>
+		:root{--bg:#0f1724;--card:#0b1220;--accent:#30a5dbe5;--muted:#94a3b8}
+		*{box-sizing:border-box}
+		body{margin:0;font-family:Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,rgba(7,16,40,0.75) 0%,rgba(11,18,32,0.75) 100%),url('1914АльбертКорольБельгии.jpg') center/cover no-repeat fixed;background-attachment:fixed;min-height:100vh;color:#e6eef8}
+		header{padding:28px 20px;text-align:center}
+		h1{margin:0;font-size:2.2rem;font-family:'Cinzel',serif;font-weight:900;letter-spacing:3px;text-transform:uppercase}
+		p.lead{color:var(--muted);margin-top:6px}
+		.container{max-width:1100px;margin:20px auto;padding:0 16px}
+		.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+		.card{background:var(--card);border-radius:8px;overflow:hidden;cursor:pointer;transition:transform .18s ease,box-shadow .18s;box-shadow:0 6px 18px rgba(2,6,23,.6)}
+		.card img{display:block;width:100%;height:180px;object-fit:cover}
+		.card .meta{padding:10px 12px}
+		.card .title{font-size:0.95rem;margin:0 0 6px}
+		.card .desc{font-size:0.82rem;color:var(--muted);margin:0}
+		.card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(15, 112, 150, 0.815)}
+		.info{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;color:var(--muted);font-size:0.85rem}
+		/* Lightbox */
+		.lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,.8);z-index:60;padding:20px}
+		.lightbox.open{display:flex}
+		.lightbox img{max-width:95%;max-height:85%;border-radius:6px;box-shadow:0 18px 50px rgba(2,6,23,.8)}
+		.lb-close{position:absolute;top:20px;right:20px;background:transparent;border:0;color:#000000;font-size:26px;cursor:pointer}
+		.lb-nav{position:absolute;top:50%;transform:translateY(-50%);font-size:36px;color:rgba(255,255,255,.85);cursor:pointer;padding:8px}
+		.lb-prev{left:18px}.lb-next{right:18px}
+		footer{Padding:18px;text-align:center;color:var(--muted);font-size:0.85rem}
+		/* Profile Section */
+		.profile{display:flex;flex-direction:column;align-items:center;padding:30px 20px;margin-bottom:20px;background:rgba(11,18,32,0.6);border-radius:12px;backdrop-filter:blur(10px)}
+		.profile-img{width:160px;height:160px;border-radius:50%;overflow:hidden;margin-bottom:16px;border:4px solid var(--accent);box-shadow:0 8px 24px rgba(2,6,23,.7)}
+		.profile-img img{width:100%;height:100%;object-fit:cover}
+		.profile h2{margin:0 0 8px;font-size:1.8rem;color:#fff}
+		.profile .dates{color:var(--accent);font-size:1rem;margin-bottom:12px;font-weight:500}
+		.profile .bio{color:var(--muted);font-size:0.95rem;max-width:600px;text-align:center;line-height:1.6}
+		@media (max-width:460px){.card img{height:140px};.profile-img{width:120px;height:120px}}
+
+		.home-btn{display:inline-block;margin-top:10px;margin-left:8px;background:var(--accent);color:#071723;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:700}
+		.home-btn:hover{filter:brightness(.95)}
+
+		</style>
+</head>
+<body>
+	<header>
+		<h1>DIE MUSKETE</h1>
+		<a class="home-btn" href="index.html" aria-label="Home">Home</a>
+	</header>
+
+	<main class="container">
+		<div class="profile">
+			<div class="profile-img">
+				<img src="Ilya-Repin.-Self-portrait-.jpg" alt="Ilya Yefimovich Repin">
+			</div>
+			<h2>Ilya Yefimovich Repin</h2>
+			<div class="dates">5 August 1844 – 29 September 1930</div>
+			<p class="bio">Ilya Repin was a talented painter of the Peredvizhniki School, who was held up by the Soviet government as an artist to be imitated by the new school of Socialist Realists. He is regarded as one of the most important Russian painters.</p>
+		</div>
+		<section style="color:var(--muted)">
+			<h3>Gallery (placeholder)</h3>
+			<p>Coming soon — you can add images in the same folder and a grid similar to the Repin page will be used.</p>
+		</section>
+		<div class="grid" id="gallery">
+			<div class="card" data-index="0">
+				<img src="Repin_17October.jpg" alt="Painting 1">
+				<div class="meta">
+					<h3 class="title">Demonstration on October 17, 1905</h3>
+					<p class="desc">1907-1911</p>
+				</div>
+			</div>
+			<div class="card" data-index="1">
+				<img src="Ilia_Efimovich_Repin_(1844-1930)_-_Volga_Boatmen_(1870-1873).jpg" alt="Painting 2" style="object-position:30% 20%;">
+				<div class="meta">
+					<h3 class="title">Barge Haulers on the Volga</h3>
+					<p class="desc">1870-1873</p>
+				</div>
+			</div>
+			<div class="card" data-index="2">
+				<img src="Alexander_III_reception_by_Repin.jpg" alt="Painting 3">
+				<div class="meta">
+					<h3 class="title">Aleksander III receiving rural district elders in the yard of Petrovsky Palace in Moscow</h3>
+					<p class="desc">1885-1886</p>
+				</div>
+			</div>
+			<div class="card" data-index="3">
+				<img src="Ilja_Jefimowitsch_Repin_-_Reply_of_the_Zaporozhian_Cossacks_-_Yorck.jpg" alt="Painting 4">
+				<div class="meta">
+					<h3 class="title">The Zaporozhye Cossacks Replying to the Sultan</h3>
+					<p class="desc">circa, 1878-1891</p>
+				</div>
+			</div>
+			<div class="card" data-index="4">
+				<img src="Iván_el_Terrible_y_su_hijo,_por_Iliá_Repin.jpg" alt="Painting 5">
+				<div class="meta">
+					<h3 class="title">Ivan the Terrible and His Son Ivan</h3>
+					<p class="desc">1885</p>
+				</div>
+			</div>
+			<div class="card" data-index="5">
+				<img src="1200px-Ilya_Repin_-_Ceremonial_Sitting_of_the_State_Council_on_7_May_1901_Marking_the_Centenary_of_its_.jpg" alt="Painting 6">
+				<div class="meta">
+					<h3 class="title">Ceremonial Meeting of the State Council on May 7, 1901</h3>
+					<p class="desc">1903</p>
+				</div>
+			</div>
+			<div class="card" data-index="6">
+				<img src="Repin._Street_in_Tiflis._1881.jpg" alt="Painting 7">
+				<div class="meta">
+					<h3 class="title">A Streets in Tiflis</h3>
+					<p class="desc">1881</p>
+				</div>
+			</div>
+			<div class="card" data-index="7">
+				<img src="Ilya_Repin_Unexpected_visitors.jpg" alt="Painting 8">
+				<div class="meta">
+					<h3 class="title">Unexpected Visitors</h3>
+					<p class="desc">1884-1888</p>
+				</div>
+			</div>
+			<div class="card" data-index="8">
+				<img src="Ilya_Repin_-_Sadko_-_Google_Art_Project_levels_adjustment_2.jpg" alt="Painting 9">
+				<div class="meta">
+					<h3 class="title">Sadko in the Underwater Kingdom</h3>
+					<p class="desc">1876</p>
+				</div>
+			</div>
+			<div class="card" data-index="9">
+				<img src="Nicolas_II_-_Ilia_Répine_-_Musée_russe_Ж-5725.jpg" alt="Painting 10" style="object-position:100% 20%;">
+				<div class="meta">
+					<h3 class="title">Portrait of Nicholas II, The Last Russian Emperor</h3>
+					<p class="desc">1896</p>
+				</div>
+			</div>
+			<div class="card" data-index="10">
+				<img src="Alexander_Kerensky_by_I.Repin_(1917)	.jpg" alt="Painting 11" style="object-position:100% 20%;">
+				<div class="meta">
+					<h3 class="title">Portrait of Alexander Kerensky</h3>
+					<p class="desc">1917</p>
+				</div>
+			</div>
+			<div class="card" data-index="11">
+				<img src="Repin_studying_exam.jpg" alt="Painting 12">
+				<div class="meta">
+					<h3 class="title">Preparation for the Examination</h3>
+					<p class="desc">1864</p>
+				</div>
+			</div>
+			<div class="card" data-index="13">
+				<img src="Ilya_Efimovich_Repin_(1844-1930)_-_Portrait_of_Leo_Tolstoy_(1887).jpg" alt="Painting 13" style="object-position: 100% 20%;">
+				<div class="meta">
+					<h3 class="title">Portrait of Leo Tolstoy</h3>
+					<p class="desc">1887</p>
+				</div>
+			</div>
+			<div class="card" data-index="14">
+				<img src="Procesión_de_Pascua_en_la_región_de_Kursk,_por_Iliá_Repin.jpg" alt="Painting 14">
+				<div class="meta">
+					<h3 class="title">Easter Procession in the Region of Kursk</h3>
+					<p class="desc">1880-1883</p>
+				</div>
+			</div>
+			<div class="card" data-index="15">
+				<img src="arest-repin+.jpg" alt="Painting 15">
+				<div class="meta">
+					<h3 class="title">Putting a Propagandist Under Arrest</h3>
+					<p class="desc">1880-1892</p>
+				</div>
+			</div>
+			<div class="card" data-index="16">
+				<img src="Modest-Moussorgski-par-Ilya-Repin-1881-Tretyakov-Gallery-Moscou.jpg" alt="Painting 16" style="object-position: 100% 20%;">
+				<div class="meta">
+					<h3 class="title">Portrait of the Composer Modest Musorgsky</h3>
+					<p class="desc">1881</p>
+				</div>
+			</div>
+			<div class="card" data-index="17">
+				<img src="294478@2x.jpeg" alt="Painting 17" style="object-position: 100% 20%;">
+				<div class="meta">
+					<h3 class="title">Self-Portrait</h3>
+					<p class="desc">1887</p>
+				</div>
+			</div>
+			<div class="card" data-index="18">
+				<img src="293321@2x.jpeg" alt="Painting 18" style="object-position: 100% 20%;">
+				<div class="meta">
+					<h3 class="title">Portrait of General and Statesman Mikhail Dragomirov</h3>
+					<p class="desc">1889</p>
+				</div>
+			</div>
+			<div class="card" data-index="19">
+				<img src="s-l1200.jpg" alt="Painting 19" style="object-position: 100% 20%;">
+				<div class="meta">
+					<h3 class="title">Girl Reading</h3>
+					<p class="desc">1876</p>
+				</div>
+			</div>
+			<div class="card" data-index="20">
+				<img src="728563@2x.png" alt="Painting 20">
+				<div class="meta">
+					<h3 class="title">Cry of prophet Jeremiah on the Ruins of Jerusalem (on a Bible subject)</h3>
+					<p class="desc">1870</p>
+				</div>
+				</div>
+			</div>
+	</main>
+
+	<div class="lightbox" id="lightbox" aria-hidden="true">
+		<button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+		<button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+		<img id="lbImg" src="" alt="">
+		<button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
+	</div>
+
+	<footer>
+		<div>Semua lukisan yang terdapat pada laman website ini, dimiliki oleh domain publik.</div>
+	</footer>
+
+	<script>
+		(function(){
+			const gallery = document.getElementById('gallery');
+			const lb = document.getElementById('lightbox');
+			const lbImg = document.getElementById('lbImg');
+			const lbClose = document.getElementById('lbClose');
+			const lbPrev = document.getElementById('lbPrev');
+			const lbNext = document.getElementById('lbNext');
+
+			// Sort gallery cards by year (oldest -> newest) and update data-index
+			(function sortGalleryByYear(){
+				function extractYear(text){
+					if(!text) return Infinity;
+					const nums = text.match(/\d{4}/g);
+					if(!nums) return Infinity;
+					return Math.min.apply(null, nums.map(Number));
+				}
+
+				const nodes = Array.from(gallery.querySelectorAll('.card'));
+				if(nodes.length <= 1) return;
+				const sorted = nodes.slice().sort((a,b)=>{
+					const aDesc = a.querySelector('.desc') ? a.querySelector('.desc').textContent : '';
+					const bDesc = b.querySelector('.desc') ? b.querySelector('.desc').textContent : '';
+					return extractYear(aDesc) - extractYear(bDesc);
+				});
+
+				sorted.forEach((el, i)=>{
+					gallery.appendChild(el);
+					el.dataset.index = i;
+				});
+			})();
+
+			const cards = Array.from(gallery.querySelectorAll('.card'));
+			let current = 0;
+
+			function openIndex(i){
+				const idx = (i + cards.length) % cards.length;
+				const img = cards[idx].querySelector('img');
+				lbImg.src = img.src;
+				lbImg.alt = img.alt || '';
+				current = idx;
+				lb.classList.add('open');
+				lb.setAttribute('aria-hidden','false');
+			}
+
+			function close(){
+				lb.classList.remove('open');
+				lb.setAttribute('aria-hidden','true');
+			}
+
+			gallery.addEventListener('click', e=>{
+				const card = e.target.closest('.card');
+				if(!card) return;
+				openIndex(Number(card.dataset.index));
+			});
+
+			lbClose.addEventListener('click', close);
+			lbPrev.addEventListener('click', ()=>openIndex(current-1));
+			lbNext.addEventListener('click', ()=>openIndex(current+1));
+			lb.addEventListener('click', e=>{ if(e.target===lb) close(); });
+			document.addEventListener('keydown', e=>{
+				if(lb.classList.contains('open')){
+					if(e.key==='Escape') close();
+					if(e.key==='ArrowLeft') openIndex(current-1);
+					if(e.key==='ArrowRight') openIndex(current+1);
+				}
+			});
+		})();
+	</script>
+</body>
+</html>

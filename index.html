@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>DIE MUSKETE — Home</title>
+	<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
+	<style>
+		:root{--bg:#0f1724;--card:#0b1220;--accent:#30a5dbe5;--muted:#94a3b8}
+		*{box-sizing:border-box}
+		body{margin:0;font-family:Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,rgba(7,16,40,0.75) 0%,rgba(11,18,32,0.75) 100%),url('1200px-August_Wilhelm_Leu_-_Sonniger_Tag_an_einem_norwegischen_Fjord_28186229.jpg') center/cover no-repeat fixed;min-height:100vh;color:#e6eef8}
+		header{padding:28px 20px;text-align:center}
+		h1{margin:0;font-size:2.2rem;font-family:'Cinzel',serif;font-weight:900;letter-spacing:3px;text-transform:uppercase}
+		.container{max-width:1100px;margin:20px auto;padding:0 16px}
+		.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+		.card{background:var(--card);border-radius:8px;overflow:hidden;cursor:pointer;transition:transform .18s ease,box-shadow .18s;box-shadow:0 6px 18px rgba(2,6,23,.6);text-decoration:none;color:inherit;display:block}
+		.card .thumb{width:100%;height:160px;object-fit:cover;background:#222;display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:600}
+		.card .meta{padding:10px 12px}
+		.card .title{font-size:1rem;margin:0 0 6px}
+		.card .desc{font-size:0.85rem;color:var(--muted);margin:0}
+		.card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(15, 112, 150, 0.815)}
+		.backlink{display:inline-block;margin-top:12px;color:var(--muted);text-decoration:none}
+		footer{Padding:18px;text-align:center;color:var(--muted);font-size:0.85rem}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>DIE MUSKETE</h1>
+		<p style="color:var(--muted);margin-top:8px">A small collection of realist painters and their works</p>
+	</header>
+
+	<main class="container">
+		<div style="margin-bottom:18px;padding:14px;background:rgba(11,18,32,0.5);border-radius:10px">
+			<p style="margin:0;color:var(--muted)">Klik nama pelukis untuk membuka halaman masing-masing. Halaman Ilya Repin sudah ada — buka "Ilya Repin".</p>
+		</div>
+
+		<div class="grid">
+			<a class="card" href="Web Entertainment (Lukisan).html">
+				<img src="Ilya-Repin.-Self-portrait-.jpg" alt="Ilya Repin" style="display:outside;width:100%;height:160px;object-fit:cover;object-position: 100% 27%;">
+				<div class="meta">
+					<h3 class="title">Ilya Yefimovich Repin</h3>
+					<p class="desc">1844 — 1930 • Russian Realist</p>
+				</div>
+			</a>
+
+			<a class="card" href="gustave-courbet.html">
+				<img src="Gustave_Courbet_-_Self-Portrait_Man_with_Pipe_-_WGA05491-844x1024.jpg" alt="Gustave Courbet" style="display:outside;width:100%;height:160px;object-fit:cover;object-position: 100% 20%;">
+				<div class="meta">
+					<h3 class="title">Gustave Courbet</h3>
+					<p class="desc">1819 — 1877 • French Realist</p>
+				</div>
+			</a>
+
+			<a class="card" href="adolph-von-menzel.html">
+				<img src="Oscar_Begas_-_Bildnis_Adolph_Menzel,_um_1875_(WV_218_B).jpg" alt="Adolph von Menzel" style="display:outside;width:110%;height:160px;object-fit:cover;object-position: 100% 27%;">
+				<div class="meta">
+					<h3 class="title">Adolph von Menzel</h3>
+					<p class="desc">1815 — 1905 • German Realist</p>
+				</div>
+			</a>
+
+			<a class="card" href="thomas-eakins.html">
+				<img src="Eakins_selfportrait.jpg" alt="Thomas Eakins" style="display:outside;width:100%;height:160px;object-fit:cover;object-position: 100% 16%;">
+				<div class="meta">
+					<h3 class="title">Thomas Eakins</h3>
+					<p class="desc">1844 — 1916 • American Realist</p>
+				</div>
+			</a>
+		</div>
+	</main>
+
+	<footer>
+		<div>Semua lukisan yang terdapat pada laman website ini, dimiliki oleh domain publik.</div>
+	</footer>
+</body>
+</html>
